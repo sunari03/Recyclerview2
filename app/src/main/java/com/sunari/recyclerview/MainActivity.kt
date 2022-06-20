@@ -1,7 +1,13 @@
 package com.sunari.recyclerview
 
+import android.app.Dialog
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import com.sunari.recyclerview.adapter.AdapterTeamBola
 import com.sunari.recyclerview.databinding.ActivityMainBinding
 import com.sunari.recyclerview.model.Pemain
@@ -22,7 +28,32 @@ class MainActivity : AppCompatActivity() {
 
         binding.list.adapter = AdapterTeamBola(this,listPemain,object : AdapterTeamBola.OnClickListener {
             override fun datailData(item: Pemain?) {
-                TODO("Not yet implemented")
+               Dialog(this@MainActivity).apply {
+                   requestWindowFeature(Window.FEATURE_NO_TITLE)
+                   setCancelable(true)
+                   setContentView(R.layout.detail_data_pemain)
+                   val image = this.findViewById<ImageView>(R.id.image_Pemain)
+                   val nama = this.findViewById<TextView>(R.id.txtNamaPemain)
+
+                   val Posisi = this.findViewById<TextView>(R.id.txtPosisi)
+                   val tinggi = this.findViewById<TextView>(R.id.txtTinggi)
+                   val tempatlahir= this.findViewById<TextView>(R.id.txtTempatLahir)
+                   val tgllahir = this.findViewById<TextView>(R.id.txtTanggalLahir)
+                   val btn = this.findViewById<Button>(R.id.btnClose)
+
+                   image.setImageResource(item?.foto ?:0)
+                   nama.text = "${item?.nama}"
+                   Posisi.text = "${item?.posisi}"
+                   tinggi.text = "${item?.tinggi}"
+                   tempatlahir.text = "${item?.tempatlahir}"
+                   tgllahir.text = "${item?.tgllahir}"
+
+                   btn.setOnClickListener {
+                       this.dismiss()
+                   }
+
+
+               }.show()
             }
 
         })
