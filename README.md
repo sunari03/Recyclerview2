@@ -9,3 +9,6 @@ Hasil RUN Screenshot
 
 ![image](https://user-images.githubusercontent.com/56722786/176988157-b9cbc46f-a61f-49f1-8593-978ed583213f.png)
 
+#Profile
+![image](https://user-images.githubusercontent.com/56722786/177028846-9eb0e23c-bf67-467b-bb22-c27321490696.png)
+
